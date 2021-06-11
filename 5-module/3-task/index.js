@@ -11,23 +11,25 @@ function initCarousel() {
   const slideCount = 4;
   let currentOffset = 0;
 
+  // click вправо
   arrowRight.addEventListener('click', (event) => {
     arrowLeft.style.display = '';
 
     currentOffset += slideWidth;
 
-    if (currentOffset === slideWidth * (slideCount - 1)) 
+    if (currentOffset === slideWidth * (slideCount - 1))
       arrowRight.style.display = 'none';
-    
+
     allSlides.style.transform = `translateX(-${currentOffset}px)`;
   });
 
+  // click влево
   arrowLeft.addEventListener('click', (event) => {
     arrowRight.style.display = '';
 
     currentOffset -= slideWidth;
-    
-    if (currentOffset === 0){
+
+    if (currentOffset === 0) {
       arrowLeft.style.display = 'none';
     }
 
