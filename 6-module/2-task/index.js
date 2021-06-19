@@ -10,10 +10,11 @@ export default class ProductCard {
     if (!this.elem) {
       this.elem = document.createElement('div');
       this.elem.className = 'card';
+    }
 
-      const { name, price, image, id } = this.data;
+    const { name, price, image, id } = this.data;
 
-      const elemContent = `
+    const elemContent = `
         <div class="card__top">
           <img src="/assets/images/products/${image}" class="card__image" alt="product">
           <span class="card__price">€${price.toFixed(2)}</span>
@@ -28,16 +29,16 @@ export default class ProductCard {
         </div>
       `;
 
-      this.elem.insertAdjacentHTML('beforeend', elemContent);
+    this.elem.insertAdjacentHTML('beforeend', elemContent);
 
-      const customEvent = new CustomEvent("product-add", {
-        detail: id,
-        bubbles: true
-      });
+    const customEvent = new CustomEvent("product-add", {
+      detail: id,
+      bubbles: true
+    });
 
-      const button = this.elem.querySelector('button');
-      button.addEventListener('click', () => this.elem.dispatchEvent(customEvent));
-    }
+    const button = this.elem.querySelector('button');
+    button.addEventListener('click', () => this.elem.dispatchEvent(customEvent));
+
   }
 
 }
